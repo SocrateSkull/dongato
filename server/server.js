@@ -1,9 +1,10 @@
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const nodemailer = require('nodemailer');
+const path = require('path');
 dotenv.config();
 
 const app = express();
@@ -11,10 +12,17 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+const uri = process.env.MONGODB_URI;
+
 // Conectar a MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  serverApi: {
+    version: '1',
+    strict: true,
+    deprecationErrors: true,
+  }
 });
 
 const db = mongoose.connection;
@@ -23,8 +31,34 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
+// Configurar nodemailer
+const transporter = nodemailer.createTransport({
+  service: 'yahoo',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  }
+});
+
 // Rutas de la API
 app.use('/api/users', require('./routes/users'));
+
+// Ruta para enviar correos electrónicos
+app.post('/api/send-email', (req, res) => {
+  const { to, subject, text } = req.body;
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to,
+    subject,
+    text,
+  };
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.status(500).json({ error: error.toString() });
+    }
+    res.status(200).json({ message: 'Email sent: ' + info.response });
+  });
+});
 
 // Servir archivos estáticos desde el cliente
 app.use(express.static(path.join(__dirname, '../client/build')));
