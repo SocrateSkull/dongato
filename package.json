@@ -1,14 +1,16 @@
 {
   "name": "dongato",
   "version": "1.0.0",
-  "description": "Descripción de tu proyecto",
-  "main": "server/server.js",
-  "scripts": {
-    "build-client": "cd client && npm install && set NODE_OPTIONS=--openssl-legacy-provider && npm run build",
-    "build-server": "cd server && npm install"
-  },
-  "author": "Adrian",
+  "main": "index.js",
+  "author": "Tu Nombre",
   "license": "MIT",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "client-build": "npm run build --prefix client",
+    "server-install": "npm install --prefix server",
+    "build": "npm run server-install && npm run client-install && npm run client-build",
+    "start": "concurrently \"npm start --prefix client\" \"npm start --prefix server\""
+  },
   "dependencies": {
     "concurrently": "^6.0.2"
   }
