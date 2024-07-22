@@ -1,25 +1,15 @@
 {
   "name": "dongato",
   "version": "1.0.0",
-  "description": "Dongato - A card generator and verifier",
+  "description": "Descripción de tu proyecto",
   "main": "server/server.js",
-  "engines": {
-    "node": "20.15.0"
-  },
   "scripts": {
-    "start": "node server/server.js",
-    "client-install": "cd client && npm install",
-    "server-install": "cd server && npm install",
-    "dev": "concurrently \"cd server && nodemon server.js\" \"cd client && npm start\"",
-    "build": "cd client && npm install && npm run build && cd ../server && npm install",
-    "heroku-postbuild": "npm run build"
+    "build-client": "cd client && npm install && set NODE_OPTIONS=--openssl-legacy-provider && npm run build",
+    "build-server": "cd server && npm install"
   },
   "author": "Adrian",
   "license": "MIT",
   "dependencies": {
     "concurrently": "^6.0.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
   }
 }
