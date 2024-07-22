@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cd client && npm install && NODE_OPTIONS=--openssl-legacy-provider npm run build && cd ../server && npm install",
+    "build": "cd client && npm install && set NODE_OPTIONS=--openssl-legacy-provider && npm run build && cd ../server && npm install",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
