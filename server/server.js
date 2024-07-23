@@ -15,14 +15,10 @@ app.use(cors());
 const uri = process.env.MONGODB_URI;
 
 // Conectar a MongoDB
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverApi: {
-    version: '1',
-    strict: true,
-    deprecationErrors: true,
-  }
+mongoose.connect(uri).then(() => {
+  console.log('Connected to MongoDB');
+}).catch(err => {
+  console.error('Error connecting to MongoDB', err);
 });
 
 const db = mongoose.connection;
