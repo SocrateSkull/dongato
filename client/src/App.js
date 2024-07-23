@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CardGenerator from './components/CardGenerator';
 import AddressGenerator from './components/AddressGenerator';
-import './App.css';
+import './App.css';  // Asegúrate de que esta línea esté presente
 
 const App = () => {
     return (
