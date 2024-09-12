@@ -12,9 +12,10 @@ yarn-error.log*
 lerna-debug.log*
 
 # Build output
-dist
-build
-client/build
+# Comentado para permitir que el build se genere durante el despliegue en Vercel
+# dist
+# build
+# client/build
 
 # Environment variables
 .env
