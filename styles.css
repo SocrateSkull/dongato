@@ -1,0 +1,22 @@
+/*En este apartado armamos un Header a lo largo para que pueda usarse un logo y adherir botones*/
+body{
+    background-color: #14ac4e;
+}
+
+header img{
+    width: 100px;
+    height: 100px;
+}
+
+header{
+    background-color: #000000;
+    color: rgb(228, 222, 222);
+    padding: 10px;
+    text-align: center;
+}
+h1{
+    text-align: center;
+    color: rgb(24, 165, 66);
+    margin-top: 10px;
+    font-size: 30px;
+}
