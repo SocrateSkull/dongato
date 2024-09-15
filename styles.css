@@ -10,6 +10,7 @@ header {
     color: rgb(228, 222, 222);
     padding: 10px;
     text-align: center;
+    position: relative; /* Asegura que el espacio para el logo se gestione correctamente */
 }
 
 .logo-container {
@@ -57,11 +58,11 @@ h1 {
     font-size: 30px;
 }
 
-p{
+p {
     text-align: center;
 }
 
-footer{
+footer {
     background-color: #000000;
     color: aliceblue;
 }
