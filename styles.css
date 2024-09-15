@@ -6,17 +6,17 @@ body {
 }
 
 header {
+    display: flex;
+    flex-direction: column; /* Coloca el logo y los botones en columnas */
+    align-items: center; /* Centra horizontalmente el contenido dentro del header */
+    height: 100px;
     background-color: #000000;
     color: rgb(228, 222, 222);
     padding: 10px;
-    text-align: center;
-    position: relative; /* Asegura que el espacio para el logo se gestione correctamente */
+    box-sizing: border-box; /* Incluye padding en el tamaño total del header */
 }
 
 .logo-container {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente el logo */
-    align-items: center; /* Centra verticalmente si es necesario */
     margin-bottom: 10px; /* Espacio entre el logo y los botones de navegación */
 }
 
