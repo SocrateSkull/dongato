@@ -1,0 +1,68 @@
+body {
+    background-color: #14ac4e;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    background-color: #000000;
+    color: rgb(228, 222, 222);
+    padding: 10px; /* Espacio lateral */
+    height: 100px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.logo-container {
+    margin-right: 0px; /* Añade un espacio entre el logo y el menú */
+}
+
+.logo_home {
+    width: 200px;
+    height: auto;
+    margin-top: 100px;
+}
+
+nav {
+    display: flex;
+    position: relative;
+    margin-left: 600px;
+    
+}
+
+.botoneras {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.botoneras li {
+    margin: 0 15px;
+}
+
+.botoneras a {
+    text-decoration: none;
+    color: rgb(228, 222, 222);
+    font-size: 16px;
+}
+
+.botoneras a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(24, 165, 66);
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+p {
+    text-align: center;
+}
+
+footer {
+    background-color: #000000;
+    color: aliceblue;
+}
